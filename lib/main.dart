@@ -1,8 +1,13 @@
+import 'dart:js';
+
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:music_player/services/song_handler.dart';
 import 'package:music_player/ui/screens/home_screen.dart';
+import 'package:provider/provider.dart';
+
+import 'notifiers/song_provider.dart';
 
 SongHandler _songHandler = SongHandler();
 
@@ -18,7 +23,9 @@ Future<void> main() async{
       androidShowNotificationBadge: true,
     )
   );
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider(create: (context)=> SongProvider()..loadSongs(_songHandler)),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
