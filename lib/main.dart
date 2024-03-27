@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:audio_service/audio_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -35,9 +33,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      showPerformanceOverlay: false,
+      title: 'Music Player',
       // theme: ThemeData(
-      //   colorScheme: light,
+      //   colorScheme: const ColorScheme.light(),
       //   useMaterial3: true,
       // ),
       darkTheme: ThemeData(

@@ -9,7 +9,7 @@ Future<void> requestSongsPermission() async {
       final Map<Permission, PermissionStatus> statuses =
           await [Permission.audio, Permission.storage].request();
 
-      if(statuses[Permission.audio]  == PermissionStatus.denied || statuses[Permission.storage] == PermissionStatus.denied){
+      if(statuses[Permission.audio]  == PermissionStatus.denied /*|| statuses[Permission.storage] == PermissionStatus.denied*/){
         await openAppSettings();
       }
     }
